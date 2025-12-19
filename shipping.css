@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: rgb(218, 183, 133);
+    color: #8f2d56;
+}
+.shipping-box{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(239, 239, 208);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.shipping-box h1, h2 {
+    text-align: center;
+}
+.shipping-box p {
+    line-height: 1.6;
+}
