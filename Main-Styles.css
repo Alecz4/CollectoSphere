@@ -190,9 +190,10 @@ input:checked ~ .slide {
     width: 100%; 
     background-size: cover;
     background-position: center;
-    display: flex; /* This tells the box to center its content */
-    align-items: center; /* Centers vertically */
-    justify-content: center; /* Centers horizontally */
+    display: flex; 
+    justify-content: center; /* Keeps the text in the middle horizontally */
+    align-items: flex-start; /* Pushes the text to the very top */
+    padding-top: 40px; /* <--- Adjust this number! 40px puts it just below the navbar */
 }
 
 .Hero-Content {
@@ -217,8 +218,6 @@ input:checked ~ .slide {
     font-weight: bolder;
     height: auto;
 }
-
-
 /* FIXED SLIDER TICKER */
 .quote1 {
     height: 50px;
