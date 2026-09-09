@@ -25,11 +25,25 @@ label input {
     width: 30px;
     top: 15px;
     left: 15px;
-    z-index: 1;
+    z-index: 100; /* CHANGE THIS: Increased from 1 to 100 to force it to the front */
     cursor: pointer;
     border-radius: 2px;
     background-color: #fff;
     transition: 0.2s;
+}
+
+.slide {
+    font-family: "Poppins", sans-serif;
+    top: 0%;
+    font-weight: 500;
+    font-style: normal;
+    height: 100%;
+    width: 180px;
+    position: absolute;
+    background-color: rgb(239, 239, 208);
+    transition: 0.5s ease;
+    transform: translateX(-180px);
+    z-index: 99; /* ADD THIS: Keeps the menu just under the X button */
 }
 .toggle .common {
     position: absolute;
@@ -173,23 +187,37 @@ input:checked ~ .slide {
 .Hero-Part {
     background-image: url(Cars.jpg);
     min-height: 650px;
-    width: 100%;
+    width: 100%; 
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* This tells the box to center its content */
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
 }
+
 .Hero-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    padding: 20px;
 }
-.Heading1, .Heading2 {
+
+.Heading1 {
     color: rgb(143, 45, 86);
+    font-size: 3rem;
     font-weight: bolder;
-    margin: 10px 0;
+    height: auto;
+    margin-bottom: 10px;
 }
-.Heading1 { font-size: 3rem; }
-.Heading2 { font-size: 2rem; }
+
+.Heading2 {
+    color: rgb(143, 45, 86);
+    font-size: 2rem;
+    font-weight: bolder;
+    height: auto;
+}
+
 
 /* FIXED SLIDER TICKER */
 .quote1 {
@@ -425,5 +453,67 @@ footer {
     .aboutus, .shopbybrand, .category, .quicklinks {
         width: 100%;
         margin-bottom: 20px;
+    }
+}
+
+
+
+/* ==============================================
+   MOBILE RESPONSIVENESS FIXES (PHONES & TABLETS)
+   ============================================== */
+@media screen and (max-width: 800px) {
+    /* 1. Fix the Navigation and Search Bar */
+    .Upper-Navbar {
+        padding: 15px 10px;
+        justify-content: space-between;
+    }
+    .input {
+        width: 130px; /* Shrinks search bar so it fits on screens */
+    }
+
+    /* 2. Shrink Hero Text for phones */
+    .Heading1 { font-size: 2rem; }
+    .Heading2 { font-size: 1.2rem; }
+
+    /* 3. Fix Trending 3D images overlapping */
+    .trending { height: auto; }
+    .trendingbrands {
+        flex-direction: column; /* Stacks images vertically */
+        align-items: center;
+    }
+    .trending1, .trending2, .trending3 {
+        transform: none !important; /* Removes the 3D rotation on phones so they fit */
+        margin: 15px 0;
+    }
+
+    /* 4. Fix Brands Overlapping */
+    .brands {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* 5. Fix New Arrivals Grid Overlapping */
+    .itemsrow {
+        grid-template-columns: 1fr; /* Changes from 3 columns to 1 column */
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 10px;
+    }
+    .item1, .item2, .item3, .item4, .item5, .item6 {
+        margin: 0 auto;
+    }
+
+    /* 6. Fix Footer Overlapping */
+    .footer {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        text-align: center;
+    }
+    .aboutus, .shopbybrand, .category, .quicklinks {
+        width: 100%;
+        height: auto;
+        margin-bottom: 25px;
     }
 }
